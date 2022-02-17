@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bfdc0d5a-7fb9-45dd-a38b-109ed2efe86f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Components/Board.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Components/DragabbleCard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/atoms.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/atoms.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/theme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/theme.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +68,7 @@
       <workItem from="1643160356111" duration="285000" />
       <workItem from="1643182645352" duration="2534000" />
       <workItem from="1643869726842" duration="15000" />
-      <workItem from="1644900119864" duration="23830000" />
+      <workItem from="1644900119864" duration="48153000" />
     </task>
     <servers />
   </component>

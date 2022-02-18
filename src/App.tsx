@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   margin: 0 auto;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  border-top: 1px solid #dfe6e9;
 `
 
 function App() {
@@ -31,8 +31,9 @@ function App() {
         if(destination?.droppableId === source.droppableId){
             setToDos(allBoards => {
                 const boardCopy = [...allBoards[source.droppableId]]
+                const taskObj = boardCopy[source.index]
                 boardCopy.splice(source.index, 1)
-                boardCopy.splice(destination?.index, 0, draggableId)
+                boardCopy.splice(destination?.index, 0, taskObj)
                 return {
                     ...allBoards,
                     [source.droppableId]: boardCopy
@@ -42,10 +43,11 @@ function App() {
         if(destination.droppableId !== source.droppableId){
             setToDos(allBoards => {
                 const sourceBoard = [...allBoards[source.droppableId]];
+                const taskObj = sourceBoard[source.index]
                 const destinationBoard = [...allBoards[destination.droppableId]];
 
                 sourceBoard.splice(source.index, 1)
-                destinationBoard.splice(destination?.index, 0, draggableId)
+                destinationBoard.splice(destination?.index, 0, taskObj)
                 return {
                     ...allBoards,
                     [source.droppableId]: sourceBoard,

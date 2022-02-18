@@ -65,6 +65,10 @@ const GlobalStyle = createGlobalStyle`
     background-color:${(props) => props.theme.bgColor};
     color:black;
     line-height: 1.2;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   a {
     text-decoration:none;

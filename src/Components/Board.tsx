@@ -1,5 +1,5 @@
 import DragabbleCard from "./DragabbleCard";
-import {Droppable} from "react-beautiful-dnd";
+import {Draggable, Droppable} from "react-beautiful-dnd";
 import styled from "styled-components";
 import {useRef} from "react";
 import {useForm} from "react-hook-form";

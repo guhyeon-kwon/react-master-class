@@ -1,69 +1,33 @@
 import React from "react";
-import {useRecoilState} from "recoil";
-import {toDoState} from "./atoms";
-import {DragDropContext, Draggable, Droppable, DropResult} from "react-beautiful-dnd"
 import styled from "styled-components";
-import Board from "./Components/Board";
+import {motion} from "framer-motion";
 
-const Boards = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  width: 100%;
-  gap: 10px;
-`
+const Box = styled(motion.div)`
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.06);
+`;
 
 const Wrapper = styled.div`
-  display: flex;
-  max-width: 680px;
+  height: 100vh;
   width: 100vw;
-  margin: 0 auto;
+  display: flex;
   justify-content: center;
   align-items: center;
-  border-top: 1px solid #dfe6e9;
 `
 
-function App() {
-    const [toDos, setToDos] = useRecoilState(toDoState)
-    const onDragEnd = (info: DropResult) => {
-        const {destination, draggableId, source} = info;
-        if(!destination) return;
-        if(destination?.droppableId === source.droppableId){
-            setToDos(allBoards => {
-                const boardCopy = [...allBoards[source.droppableId]]
-                const taskObj = boardCopy[source.index]
-                boardCopy.splice(source.index, 1)
-                boardCopy.splice(destination?.index, 0, taskObj)
-                return {
-                    ...allBoards,
-                    [source.droppableId]: boardCopy
-                }
-            })
-        }
-        if(destination.droppableId !== source.droppableId){
-            setToDos(allBoards => {
-                const sourceBoard = [...allBoards[source.droppableId]];
-                const taskObj = sourceBoard[source.index]
-                const destinationBoard = [...allBoards[destination.droppableId]];
+const myVars = {
+    start: {scale: 0},
+    end: {scale:1, rotateZ: 360, transition: {type:"spring", delay:0.5}}
+}
 
-                sourceBoard.splice(source.index, 1)
-                destinationBoard.splice(destination?.index, 0, taskObj)
-                return {
-                    ...allBoards,
-                    [source.droppableId]: sourceBoard,
-                    [destination.droppableId]: destinationBoard,
-                }
-            })
-        }
-    }
+function App() {
     return (
-        <DragDropContext onDragEnd={onDragEnd}>
-            <Wrapper>
-                <Boards>
-                    {Object.keys(toDos).map(boardId => <Board boardId={boardId} key={boardId} toDos={toDos[boardId]} />)}
-                </Boards>
-            </Wrapper>
-        </DragDropContext>
+        <Wrapper>
+            <Box variants={myVars} initial="start" animate="end" />
+        </Wrapper>
     )
 }
 

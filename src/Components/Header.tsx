@@ -183,7 +183,8 @@ function Header() {
                         transition={{type: "linear"}}
                         placeholder="Search for movie or tv show..."
                     />
-                </Search>
+                </Search>+
+
             </Col>
         </Nav>
     );

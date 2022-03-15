@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bfdc0d5a-7fb9-45dd-a38b-109ed2efe86f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/utils.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Routes/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routes/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +21,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -47,7 +52,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="ts.external.directory.path" value="C:\TestProject\my-app\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="C:\Users\rngus\OneDrive\Desktop\react-master-class\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -81,6 +86,7 @@
       <workItem from="1646285753981" duration="1854000" />
       <workItem from="1646292760881" duration="4313000" />
       <workItem from="1646961810017" duration="19954000" />
+      <workItem from="1647350557870" duration="3150000" />
     </task>
     <servers />
   </component>
@@ -97,6 +103,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -65,9 +65,9 @@ const Box = styled(motion.div)<{bgPhoto: string}>`
 `;
 
 const Info = styled(motion.div)`
-  padding: 20px;
+  padding: 10px;
   background-color: ${(props) => props.theme.black.lighter};
-  opacity: 1;
+  opacity: 0;
   position: absolute;
   width: 100%;
   bottom: 0;
@@ -94,10 +94,13 @@ const boxVariants = {
         scale: 1,
     },
     hover: {
+        zIndex: 99,
         scale: 1.3,
         y: -50,
         transition:{
-            delay:0.3,
+            delay:0.5,
+            duration: 0.1,
+            type: "tween"
         }
     }
 }
@@ -105,6 +108,11 @@ const boxVariants = {
 const infoVariants = {
     hover: {
         opacity: 1,
+        transition:{
+            delay:0.5,
+            duration: 0.1,
+            type: "tween"
+        }
     }
 }
 

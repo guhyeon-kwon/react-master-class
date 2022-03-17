@@ -1,7 +1,8 @@
-import {Link, useRouteMatch} from "react-router-dom";
+import {Link, useHistory, useRouteMatch} from "react-router-dom";
 import styled from "styled-components";
 import {motion, useAnimation, useViewportScroll} from "framer-motion";
 import {useEffect, useState} from "react";
+import {useForm} from "react-hook-form";
 
 const Nav = styled(motion.nav)`
   display: flex;
@@ -12,7 +13,7 @@ const Nav = styled(motion.nav)`
   top: 0;
   font-size: 14px;
   padding: 20px 60px;
-  color: white;\
+  color: white;
 `;
 const Col = styled.div`
   display: flex;
@@ -47,7 +48,7 @@ const Item = styled.li`
   }
 `;
 
-const Search = styled.span`
+const Search = styled.form`
   color: white;
   display: flex;
   align-items: center;
@@ -57,12 +58,11 @@ const Search = styled.span`
     height: 25px;
   }
 `;
-
 const Circle = styled(motion.span)`
   position: absolute;
   width: 5px;
   height: 5px;
-  border-radius: 5px;
+  border-radius: 2.5px;
   bottom: -5px;
   left: 0;
   right: 0;
@@ -97,49 +97,56 @@ const logoVariants = {
 
 const navVariants = {
     top: {
-        backgroundColor: "rgba(0,0,0,0)",
+        backgroundColor: "rgba(0, 0, 0, 0)",
     },
     scroll: {
-        backgroundColor: "rgba(0,0,0,1)",
-    }
+        backgroundColor: "rgba(0, 0, 0, 1)",
+    },
+};
+
+interface IForm {
+    keyword: string
 }
 
 function Header() {
     const [searchOpen, setSearchOpen] = useState(false);
     const homeMatch = useRouteMatch("/");
     const tvMatch = useRouteMatch("/tv");
-    const navAnimation = useAnimation();
     const inputAnimation = useAnimation();
-    const { scrollY } = useViewportScroll();
+    const navAnimation = useAnimation();
+    const {scrollY} = useViewportScroll();
     const toggleSearch = () => {
-        if(searchOpen){
-            inputAnimation.start("scroll");
+        if (searchOpen) {
+            inputAnimation.start({
+                scaleX: 0,
+            });
         } else {
-            inputAnimation.start("top");
+            inputAnimation.start({scaleX: 1});
         }
         setSearchOpen((prev) => !prev);
-    }
+    };
     useEffect(() => {
         scrollY.onChange(() => {
-            if(scrollY.get() > 80){
-                navAnimation.start({
-                    backgroundColor: "rgba(0,0,0,1)"
-                })
+            if (scrollY.get() > 80) {
+                navAnimation.start("scroll");
             } else {
-                navAnimation.start({
-                    backgroundColor: "rgba(0,0,0,0)"
-                })
+                navAnimation.start("top");
             }
-        })
+        });
     }, [scrollY, navAnimation]);
-    
+    const history = useHistory();
+    const {register, handleSubmit} = useForm<IForm>();
+    const onValid = (data: IForm) => {
+        console.log(data);
+        history.push(`/search?keyword=${data.keyword}`)
+    }
     return (
-        <Nav variants={navVariants} animate={navAnimation} initial={{backgroundColor: "rgba(0,0,0,0)"}}>
+        <Nav variants={navVariants} animate={navAnimation} initial={"top"}>
             <Col>
                 <Logo
                     variants={logoVariants}
                     whileHover="active"
-                    initial="normal"
+                    animate="normal"
                     xmlns="http://www.w3.org/2000/svg"
                     width="1024"
                     height="276.742"
@@ -162,10 +169,10 @@ function Header() {
                 </Items>
             </Col>
             <Col>
-                <Search>
+                <Search onSubmit={handleSubmit(onValid)}>
                     <motion.svg
                         onClick={toggleSearch}
-                        animate={{x: searchOpen ? -180 : 0}}
+                        animate={{x: searchOpen ? -215 : 0}}
                         transition={{type: "linear"}}
                         fill="currentColor"
                         viewBox="0 0 20 20"
@@ -178,13 +185,13 @@ function Header() {
                         ></path>
                     </motion.svg>
                     <Input
+                        {...register("keyword", {required: true, minLength: 2})}
                         animate={inputAnimation}
-                        initial={{ scaleX: 0 }}
+                        initial={{scaleX: 0}}
                         transition={{type: "linear"}}
                         placeholder="Search for movie or tv show..."
                     />
-                </Search>+
-
+                </Search>
             </Col>
         </Nav>
     );
